@@ -7,8 +7,15 @@ test("Homepage was retrieved successfully!", async ({ page }) => {
 
   expect(await page?.title()).toBe("Welcome");
 
+  /**
+   * The $ method is used to query for an element on the page.
+   * It's equivalent to document.querySelector in the browser which
+   * returns the first element that matches the specified CSS selector.
+   * @see https://playwright.dev/docs/api/class-page#page-queryselector
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+   */
   const h1 = await page.$("h1");
-  const homeNavLink = await page.$(`nav a[href="${getPath()}"]`);
+  const homeNavLink = await page.$(`nav a[href="${getPath()}"]`); // @see https://www.w3schools.com/css/css_attribute_selectors.asp
   const listPokemonLink = await page.$(`nav a[href="${getPath("pokemon")}"]`);
   const newPokemonLink = await page.$(
     `nav a[href="${getPath("pokemon/new")}"]`,
