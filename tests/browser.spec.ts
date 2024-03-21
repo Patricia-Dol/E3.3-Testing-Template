@@ -15,7 +15,7 @@ test("Homepage was retrieved successfully!", async ({ page }) => {
    * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
    */
   const h1 = await page.$("h1");
-  const homeNavLink = await page.$(`nav a[href="${getPath()}"]`); // @see https://www.w3schools.com/css/css_attribute_selectors.asp
+  const homeNavLink = await page.$(`nav a[href="${getPath("home")}"]`); // @see https://www.w3schools.com/css/css_attribute_selectors.asp
   const listPokemonLink = await page.$(`nav a[href="${getPath("pokemon")}"]`);
   const newPokemonLink = await page.$(
     `nav a[href="${getPath("pokemon/new")}"]`,
@@ -37,7 +37,6 @@ test("Homepage was retrieved successfully!", async ({ page }) => {
 
 test("Invalid path returned error.", async ({ page }) => {
   await page.goto(getPath("digimon"));
-
   const h1 = await page.$("h1");
   const body = await page.$("body");
 

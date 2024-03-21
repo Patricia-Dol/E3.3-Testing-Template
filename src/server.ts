@@ -57,6 +57,7 @@ const handleRequest = async (req: IncomingMessage, res: ServerResponse) => {
     res.end(
       await renderTemplate("src/views/ErrorView.hbs", {
         title: "Error",
+        message: "Route not found"
       }),
     );
   }

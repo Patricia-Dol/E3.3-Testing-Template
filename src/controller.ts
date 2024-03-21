@@ -5,7 +5,7 @@ import { renderTemplate } from "./view";
 export const getHome = async (req: IncomingMessage, res: ServerResponse) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html");
-  res.end(await renderTemplate("src/views/HomeView.hbs",{title: "Welcome", homeNavLink: ""}));
+  res.end(await renderTemplate("src/views/HomeView.hbs",{title: "Welcome"}));
 };
 
 export const getNewForm = async (req: IncomingMessage, res: ServerResponse) => {
@@ -63,7 +63,7 @@ export const getAllPokemon = async (
   res.end(
     await renderTemplate("src/views/ListView.hbs", {
       title: "All Pokemon",
-      pokemn: pokemon,
+      pokemon: pokemon,
     }),
   );
 };
